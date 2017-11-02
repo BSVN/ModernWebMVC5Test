@@ -1,15 +1,14 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import HelloWorld from '@/components/HelloWorld.vue'
+import HelloWorld from '@/components/HelloWorld.vue';
+import Vue from 'vue';
+import VueRouter from 'vue-router';
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 export default new VueRouter({
   routes: [
     {
+      component: HelloWorld,
       path: '/',
-      name: 'Hello',
-      component: HelloWorld
-    }
-  ]
-})
+    },
+  ],
+});

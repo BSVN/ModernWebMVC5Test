@@ -1,4 +1,5 @@
 'use strict'
+const webpack = require('webpack')
 const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
@@ -37,6 +38,17 @@ module.exports = {
         }
       },
       {
+        test: /\.ts$/,
+        include: [resolve('src'), resolve('test')],
+        enforce: 'pre',
+        loader: 'tslint-loader',
+        options: {
+          formatter: 'codeFrame',
+          configFile: 'tslint.json',
+          emitErrors: true,
+        }
+      },
+      {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: vueLoaderConfig
@@ -66,5 +78,13 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery',
+      Popper: ['popper.js', 'default'],
+    })
+  ]
 }

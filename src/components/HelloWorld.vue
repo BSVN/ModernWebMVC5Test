@@ -21,13 +21,14 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import Component from 'vue-class-component'
+import 'bootstrap';
+import Vue from 'vue';
+import Component from 'vue-class-component';
 
 
 @Component
 export default class extends Vue {
-  msg: string = 'Hello M6stafa'
+  private msg: string = 'Hello M6stafa';
 }
 </script>
 
